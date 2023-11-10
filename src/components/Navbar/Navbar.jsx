@@ -24,7 +24,7 @@ function Navbar(props) {
   };
 
   return (
-    <div style={{margin:"50vh"}}>
+    <div>
       <AppBar sx={{ margin: 0 }}>
         <Container>
           <Toolbar>
