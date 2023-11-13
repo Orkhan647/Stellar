@@ -22,8 +22,9 @@ const Posts = () => {
       <Grid
         container
         spacing={1}  
-        gap={isSmallScreen ? '16px' : '80px'}  // Adjust the gap for smaller screens
-        paddingTop={isSmallScreen ? "20px" : "50px"} // Adjust the padding for smaller screens
+        gap={isSmallScreen ? '16px' : '80px'} 
+        paddingTop={isSmallScreen ? "20px" : "50px"} 
+        paddingBottom={'150px'}
       >
     
         <Grid item xs={12} md={6}>
