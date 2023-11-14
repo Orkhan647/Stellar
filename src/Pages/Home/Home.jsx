@@ -7,6 +7,7 @@ import AboutUs from "../../components/About Us/AboutUs";
 import Category from "../../components/Category Cards/Category";
 import WhyWe from "../../components/WhyWe/WhyWe";
 import Authors from "../../components/Authors/Authors";
+import Brands from "../../components/Brands/Brands";
 
 const Home = () => {
   return (
@@ -17,6 +18,7 @@ const Home = () => {
       <Category />
       <WhyWe />
       <Authors />
+      <Brands/>
     </PageContainer>
   );
 };
