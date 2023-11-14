@@ -34,8 +34,8 @@ const categories = [
 
 const Category = () => {
   return (
-    <Container sx={{marginBottom:'100px'}}>
-      <Typography variant='h5' sx={{ textAlign: 'center', fontWeight: 700, mb: 3 }}>
+    <Container sx={{paddingBottom:"100px"}}>
+      <Typography variant='h5' sx={{ textAlign: 'center', fontWeight: 700, mb: 3,mt:3 }}>
         Choose A Category
       </Typography>
 
@@ -58,6 +58,7 @@ const Category = () => {
               justifyContent: 'center',
               alignItems: 'center',
               padding: '16px',
+              paddingTop:'100px',
               transition: 'background 0.3s',
               '&:hover': {
                 backgroundColor: '#FFD050',
