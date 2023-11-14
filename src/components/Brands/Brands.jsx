@@ -34,8 +34,8 @@ const Brands = () => {
               width: 'auto',
               height: `${minHeight}px`,
               objectFit: 'contain',
-              flexBasis: isSmallScreen ? '48%' : 'auto', // 2x3 düzeni için flex-basis ekleniyor
-              marginBottom: isSmallScreen ? '10px' : '0', // Küçük ekranlarda boşluk ekleyebilirsiniz
+              flexBasis: isSmallScreen ? '48%' : 'auto', 
+              marginBottom: isSmallScreen ? '10px' : '0',
             }}
           />
         ))}
