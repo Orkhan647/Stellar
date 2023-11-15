@@ -8,6 +8,7 @@ import Category from "../../components/Category Cards/Category";
 import WhyWe from "../../components/WhyWe/WhyWe";
 import Authors from "../../components/Authors/Authors";
 import Brands from "../../components/Brands/Brands";
+import Testimonials from "../../components/Testimonials/Testimonials";
 
 const Home = () => {
   return (
@@ -19,6 +20,7 @@ const Home = () => {
       <WhyWe />
       <Authors />
       <Brands/>
+      <Testimonials/>
     </PageContainer>
   );
 };
