@@ -9,6 +9,7 @@ import WhyWe from "../../components/WhyWe/WhyWe";
 import Authors from "../../components/Authors/Authors";
 import Brands from "../../components/Brands/Brands";
 import Testimonials from "../../components/Testimonials/Testimonials";
+import JoinOurTeam from "../../components/JoinOurTeam/JoinOurTeam";
 
 const Home = () => {
   return (
@@ -21,6 +22,7 @@ const Home = () => {
       <Authors />
       <Brands/>
       <Testimonials/>
+      <JoinOurTeam/>
     </PageContainer>
   );
 };
