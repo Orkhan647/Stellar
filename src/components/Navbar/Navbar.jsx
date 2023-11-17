@@ -1,5 +1,6 @@
-import * as React from 'react';
+import React, { useState } from 'react';
 import PropTypes from 'prop-types';
+import { Link } from 'react-router-dom';
 import AppBar from '@mui/material/AppBar';
 import IconButton from '@mui/material/IconButton';
 import List from '@mui/material/List';
@@ -10,13 +11,12 @@ import MenuIcon from '@mui/icons-material/Menu';
 import Toolbar from '@mui/material/Toolbar';
 import { Container, Button, Box, Drawer, Divider } from '@mui/material';
 import logo from '../../assets/logo/logo.png';
-import { useState } from 'react';
 
 const navItems = ['Home', 'Blog', 'About', 'Contact'];
 
 function Navbar(props) {
   const { window } = props;
-  const [selectedItem, setSelectedItem] = React.useState(null);
+  const [selectedItem, setSelectedItem] = useState(null);
   const [openDrawer, setOpenDrawer] = useState(false);
 
   const handleClick = (item) => {
@@ -43,6 +43,8 @@ function Navbar(props) {
               {navItems.map((item, index) => (
                 <ListItem disablePadding key={item}>
                   <ListItemButton
+                    component={item === 'Home' ? Link : 'button'}
+                    to={item === 'Home' ? '/' : (item === 'Blog' ? '/blog' : `/${item.toLowerCase()}`)}
                     selected={selectedItem === item}
                     onClick={() => handleClick(item)}
                     sx={{
@@ -55,6 +57,8 @@ function Navbar(props) {
                   </ListItemButton>
                   {index === navItems.length - 1 && (
                     <Button
+                      component={Link}
+                      to="/subscribe"
                       sx={{
                         color: 'black',
                         bgcolor: 'white',
@@ -74,35 +78,33 @@ function Navbar(props) {
         </Container>
       </AppBar>
       <Drawer
-  anchor="top"
-  open={openDrawer}
-  onClose={() => setOpenDrawer(false)}
->
-  <List sx={{ margin: '0 auto',width:'100%' }}>
-    {navItems.map((text) => (
-      <ListItem
-        button
-        key={text}
-        onClick={() => {
-          setSelectedItem(text);
-          setOpenDrawer(false);
-        }}
-        sx={{
-          textAlign: 'center',
-          '&:hover': {
-            backgroundColor: (theme) => theme.palette.secondary.main,
-            
-          },
-        }}
+        anchor="top"
+        open={openDrawer}
+        onClose={() => setOpenDrawer(false)}
       >
-        <ListItemText primary={text} />
-      </ListItem>
-    ))}
-  </List>
-  <Divider />
-</Drawer>
-
-
+        <List sx={{ margin: '0 auto', width: '100%' }}>
+          {navItems.map((text) => (
+            <ListItem
+              component={Link}
+              to={text === 'Blog' ? '/blog' : `/${text.toLowerCase()}`}
+              key={text}
+              onClick={() => {
+                setSelectedItem(text);
+                setOpenDrawer(false);
+              }}
+              sx={{
+                textAlign: 'center',
+                '&:hover': {
+                  backgroundColor: (theme) => theme.palette.secondary.main,
+                },
+              }}
+            >
+              <ListItemText primary={text} />
+            </ListItem>
+          ))}
+        </List>
+        <Divider />
+      </Drawer>
     </div>
   );
 }
