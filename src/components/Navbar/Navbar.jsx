@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
 import PropTypes from 'prop-types';
-import { Link } from 'react-router-dom';
+import { Link, useLocation } from 'react-router-dom';
 import AppBar from '@mui/material/AppBar';
 import IconButton from '@mui/material/IconButton';
 import List from '@mui/material/List';
@@ -16,11 +16,21 @@ const navItems = ['Home', 'Blog', 'About', 'Contact'];
 
 function Navbar(props) {
   const { window } = props;
-  const [selectedItem, setSelectedItem] = useState(null);
   const [openDrawer, setOpenDrawer] = useState(false);
+  const location = useLocation();
+
+  const isItemSelected = (item) => {
+    return location.pathname === (item === 'Home' ? '/' : `/${item.toLowerCase()}`);
+  };
 
   const handleClick = (item) => {
-    setSelectedItem(item);
+    setOpenDrawer(false);
+
+    // Check if the clicked item is the "Subscribe" button
+    if (item === 'Subscribe') {
+      // Handle subscribe button click (e.g., show a modal, trigger an action, etc.)
+      console.log('Subscribe button clicked');
+    }
   };
 
   return (
@@ -40,39 +50,42 @@ function Navbar(props) {
               <img src={logo} alt="" width={250} height={50} />
             </Box>
             <List sx={{ display: { xs: 'none', gap: '10px', sm: 'flex' } }}>
-              {navItems.map((item, index) => (
+              {navItems.map((item) => (
                 <ListItem disablePadding key={item}>
                   <ListItemButton
-                    component={item === 'Home' ? Link : 'button'}
-                    to={item === 'Home' ? '/' : (item === 'Blog' ? '/blog' : `/${item.toLowerCase()}`)}
-                    selected={selectedItem === item}
+                    component={Link}
+                    to={item === 'Home' ? '/' : `/${item.toLowerCase()}`}
+                    selected={isItemSelected(item)}
                     onClick={() => handleClick(item)}
                     sx={{
-                      '&.Mui-selected': {
-                        color: (theme) => theme.palette.secondary.main,
-                      },
+                      color: isItemSelected(item)
+                        ? (theme) => theme.palette.secondary.main
+                        : undefined,
                     }}
                   >
                     <ListItemText primary={item} />
                   </ListItemButton>
-                  {index === navItems.length - 1 && (
-                    <Button
-                      component={Link}
-                      to="/subscribe"
-                      sx={{
-                        color: 'black',
-                        bgcolor: 'white',
-                        marginLeft: '50px',
-                        '&:hover': {
-                          bgcolor: (theme) => theme.palette.secondary.main,
-                        },
-                      }}
-                    >
-                      Subscribe
-                    </Button>
-                  )}
                 </ListItem>
               ))}
+              <ListItem>
+                <Button
+                  component={Link}
+                  to="/subscribe"
+                  sx={{
+                    bgcolor: (theme) => theme.palette.secondary.main,
+                    marginLeft: '50px',
+                    '&:hover': {
+                      bgcolor: 'white',
+                    },
+                  }}
+                  onClick={(e) => {
+                    e.preventDefault(); // Prevent the default behavior (navigation)
+                    handleClick('Subscribe');
+                  }}
+                >
+                  Subscribe
+                </Button>
+              </ListItem>
             </List>
           </Toolbar>
         </Container>
@@ -86,12 +99,9 @@ function Navbar(props) {
           {navItems.map((text) => (
             <ListItem
               component={Link}
-              to={text === 'Blog' ? '/blog' : `/${text.toLowerCase()}`}
+              to={text === 'Home' ? '/' : `/${text.toLowerCase()}`}
               key={text}
-              onClick={() => {
-                setSelectedItem(text);
-                setOpenDrawer(false);
-              }}
+              onClick={() => setOpenDrawer(false)}
               sx={{
                 textAlign: 'center',
                 '&:hover': {
