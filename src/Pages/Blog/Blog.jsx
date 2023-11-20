@@ -9,7 +9,7 @@ const Blog = () => {
     <PageContainer>
      <FaturedPost/>
      <Blogs/>
-     <Category/>
+     <Category textAlign="left" title="All Categories"/>
      <JoinOurTeam/>
     </PageContainer>
   )

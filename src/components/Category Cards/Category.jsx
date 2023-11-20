@@ -32,11 +32,11 @@ const categories = [
   },
 ];
 
-const Category = () => {
+const Category = ({ textAlign, title }) => {
   return (
-    <Container sx={{paddingBottom:"100px"}}>
-      <Typography variant='h5' sx={{ textAlign: 'center', fontWeight: 700, mb: 3,mt:3 }}>
-        Choose A Category
+    <Container sx={{ paddingBottom: '100px' }}>
+      <Typography variant='h5' sx={{ textAlign: textAlign || 'center', fontWeight: 700, mb: 3, mt: 3 }}>
+        {title || 'Choose A Category'}
       </Typography>
 
       <Box
@@ -51,14 +51,15 @@ const Category = () => {
             sx={{
               border: '1px solid  #e9e9ea',
               width: 240,
-              height: 200,
+              height: 100,
               borderRadius: 0,
               display: 'flex',
               flexDirection: 'column',
               justifyContent: 'center',
               alignItems: 'center',
-              padding: '16px',
-              paddingTop:'100px',
+              padding: '35px',
+              margin:'10px',
+              paddingTop: '100px',
               transition: 'background 0.3s',
               '&:hover': {
                 backgroundColor: '#FFD050',
@@ -67,7 +68,7 @@ const Category = () => {
             }}
           >
             <CardContent>
-              <img src={category.logo} alt={category.title} style={{  marginBottom: '12px' }} />
+              <img src={category.logo} alt={category.title} style={{ marginBottom: '12px' }} />
               <Typography variant='h6' color='text.primary' sx={{ fontWeight: 800 }}>
                 {category.title}
               </Typography>
@@ -83,4 +84,3 @@ const Category = () => {
 };
 
 export default Category;
-    
