@@ -1,4 +1,12 @@
-import { Box, Container, Grid, Typography, useMediaQuery, createTheme, responsiveFontSizes } from "@mui/material";
+import {
+  Box,
+  Container,
+  Grid,
+  Typography,
+  useMediaQuery,
+  createTheme,
+  responsiveFontSizes,
+} from "@mui/material";
 import React from "react";
 import aboutImg from "../../assets/aboutImg.png";
 
@@ -19,12 +27,16 @@ const AboutPageHead = () => {
               top: isSmallScreen ? null : "100px",
               zIndex: 1,
               bgcolor: "white",
-              padding:isSmallScreen ? '15px':"60px",
+              padding: isSmallScreen ? "15px" : "60px",
             }}
           >
             <Typography sx={{ fontWeight: 700 }}>ABOUT US</Typography>
-            <Typography variant={isSmallScreen ? "h6" : "h4"} sx={{ fontWeight: 700, mt: 2 }}>
-              We are a team of <br /> content writers who <br /> share their learnings
+            <Typography
+              variant={isSmallScreen ? "h6" : "h4"}
+              sx={{ fontWeight: 700, mt: 2 }}
+            >
+              We are a team of <br /> content writers who <br /> share their
+              learnings
             </Typography>
           </Box>
         </Grid>
@@ -49,7 +61,7 @@ const AboutPageHead = () => {
           style={{
             width: "100%",
             height: isSmallScreen ? "230px" : null,
-            objectFit: "cover", // or "contain" based on your preference
+            objectFit: "cover",
           }}
           src={aboutImg}
           alt=""
@@ -69,19 +81,28 @@ const AboutPageHead = () => {
         }}
       >
         <Box>
-          <Typography variant={isSmallScreen ? "h5" : 'h3'} sx={{ fontWeight: 700 }}>
+          <Typography
+            variant={isSmallScreen ? "h5" : "h3"}
+            sx={{ fontWeight: 700 }}
+          >
             12+
           </Typography>
           <Typography>Blogs Published</Typography>
         </Box>
         <Box>
-          <Typography variant={isSmallScreen ? "h5" : 'h3'} sx={{ fontWeight: 700 }}>
+          <Typography
+            variant={isSmallScreen ? "h5" : "h3"}
+            sx={{ fontWeight: 700 }}
+          >
             18K+
           </Typography>
           <Typography>Views on Finsweet</Typography>
         </Box>
         <Box>
-          <Typography variant={isSmallScreen ? "h5" : 'h3'} sx={{ fontWeight: 700 }}>
+          <Typography
+            variant={isSmallScreen ? "h5" : "h3"}
+            sx={{ fontWeight: 700 }}
+          >
             30K+
           </Typography>
           <Typography>Total active Users</Typography>
@@ -111,6 +132,38 @@ const AboutPageHead = () => {
           ></div>
         </Box>
       </Box>
+      <Grid container sx={{justifyContent:'space-around',padding:'80px 40px',bgcolor:'#F4F0F8'}}>
+        <Grid item sx={{mb: isSmallScreen? 3:null}}>
+          <Typography sx={{fontWeight:700,mb:2}}>OUR MISSION</Typography>
+          <Typography variant="h5" sx={{fontWeight:700,mb:2}}>
+            Creating valuable content for <br /> creatives all around the world
+          </Typography>
+          <Typography sx={{color:'#6D6E76'}}>
+            Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do{" "}
+            <br />
+            eiusmod tempor incididunt ut labore et dolore magna aliqua. Non{" "}
+            <br />
+            blandit massa enim nec. Scelerisque viverra mauris in aliquam sem.{" "}
+            <br />
+            At risus viverra adipiscing at in tellus.
+          </Typography>
+        </Grid>
+        <Grid item>
+          <Typography sx={{fontWeight:700,mb:2}}>Our Vision</Typography>
+          <Typography  variant="h5" sx={{fontWeight:700,mb:2}}>
+            A platform that empowers <br /> individuals to improve
+          </Typography>
+          <Typography sx={{color:'#6D6E76'}}>
+            Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do{" "}
+            <br />
+            eiusmod tempor incididunt ut labore et dolore magna aliqua. Non{" "}
+            <br />
+            blandit massa enim nec. Scelerisque viverra mauris in aliquam sem.{" "}
+            <br />
+            At risus viverra adipiscing at in tellus.
+          </Typography>
+        </Grid>
+      </Grid>
     </Container>
   );
 };
