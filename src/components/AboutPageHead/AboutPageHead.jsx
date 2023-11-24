@@ -1,3 +1,4 @@
+import React from "react";
 import {
   Box,
   Container,
@@ -7,27 +8,30 @@ import {
   createTheme,
   responsiveFontSizes,
 } from "@mui/material";
-import React from "react";
 import aboutImg from "../../assets/aboutImg.png";
 
 const AboutPageHead = () => {
   const isSmallScreen = useMediaQuery((theme) => theme.breakpoints.down("sm"));
+  const isTabletScreen = useMediaQuery((theme) => theme.breakpoints.down("lg"));
 
   let theme = createTheme();
   theme = responsiveFontSizes(theme);
 
   return (
-    <Container sx={{ mt: 20 }}>
-      <Grid container sx={{ justifyContent: "space-between" }}>
-        <Grid item sx={{ bgcolor: "white" }}>
+    <Container sx={{ mt: isSmallScreen ? 5 : 10 }}>
+      <Grid container sx={{ flexDirection: isSmallScreen ? "column-reverse" : "row" }}>
+        <Grid item xs={12} md={6} sx={{ order: isSmallScreen ? 2 : 1 }}>
           <Box
             sx={{
-              position: isSmallScreen ? "relative" : "absolute",
-              left: isSmallScreen ? null : "150px",
-              top: isSmallScreen ? null : "100px",
+              mt:isSmallScreen? 4:null,
+              position: "relative",
+              top: isTabletScreen ? null : "70px",
+              left: isTabletScreen ? null : "40px",
               zIndex: 1,
               bgcolor: "white",
               padding: isSmallScreen ? "15px" : "60px",
+              textAlign: "center",
+             
             }}
           >
             <Typography sx={{ fontWeight: 700 }}>ABOUT US</Typography>
@@ -40,12 +44,15 @@ const AboutPageHead = () => {
             </Typography>
           </Box>
         </Grid>
-        <Grid item>
+        <Grid item xs={12} md={6} sx={{ order: isSmallScreen ? 1 : 2 }}>
           <Typography
             sx={{
+              
               color: "#4C4C4C",
-              mb: 10,
+              mt:isTabletScreen ? 10:14,
+              mb: isSmallScreen ? 10 : 2,
               display: isSmallScreen ? "none" : "block",
+              textAlign: "center",
             }}
           >
             Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do{" "}
@@ -56,31 +63,35 @@ const AboutPageHead = () => {
           </Typography>
         </Grid>
       </Grid>
-      <Box sx={{ position: "relative" }}>
+
+      <Box sx={{ position: "relative", mt: isSmallScreen ? 0 : 4 }}>
         <img
           style={{
             width: "100%",
-            height: isSmallScreen ? "230px" : null,
+            height: isSmallScreen ? "200px" : "100%",
             objectFit: "cover",
+
           }}
           src={aboutImg}
           alt=""
         />
-      </Box>
       <Box
         sx={{
           bgcolor: (theme) => theme.palette.secondary.main,
-          textAlign: "left",
-          gap: "10px",
-          padding: isSmallScreen ? "10px" : "40px",
-          width: "fit-content",
-          position: isSmallScreen ? "relative" : "absolute",
-          bottom: isSmallScreen ? null : "-110px",
-          left: isSmallScreen ? null : "210px",
+          textAlign: isSmallScreen? 'center':"left",
+          width: isSmallScreen ? 'auto' : 'fit-content',
+          gap: isSmallScreen ? "5px" : "10px", 
+          padding: isSmallScreen ? "10px" : "30px",
           display: "flex",
+          position: isSmallScreen? 'relative':'absolute',
+          bottom:isSmallScreen? '4px':'29px',
+          left: isSmallScreen? '0px':'120px'
+
+          
+         
         }}
       >
-        <Box>
+        <Box sx={{ mb: isSmallScreen ? 2 : 0 }}>
           <Typography
             variant={isSmallScreen ? "h5" : "h3"}
             sx={{ fontWeight: 700 }}
@@ -89,7 +100,7 @@ const AboutPageHead = () => {
           </Typography>
           <Typography>Blogs Published</Typography>
         </Box>
-        <Box>
+        <Box sx={{ mb: isSmallScreen ? 2 : 0 }}>
           <Typography
             variant={isSmallScreen ? "h5" : "h3"}
             sx={{ fontWeight: 700 }}
@@ -98,7 +109,7 @@ const AboutPageHead = () => {
           </Typography>
           <Typography>Views on Finsweet</Typography>
         </Box>
-        <Box>
+        <Box sx={{ mb: isSmallScreen ? 2 : 0 }}>
           <Typography
             variant={isSmallScreen ? "h5" : "h3"}
             sx={{ fontWeight: 700 }}
@@ -107,38 +118,55 @@ const AboutPageHead = () => {
           </Typography>
           <Typography>Total active Users</Typography>
         </Box>
-        <Box sx={{ display: isSmallScreen ? "none" : "block" }}>
-          <div
-            style={{
-              position: "absolute",
-              bottom: "-23px",
-              left: 0,
-              width: "48%",
-              height: "30px",
-              backgroundColor: "#592EA9",
-              zIndex: 1,
-            }}
-          ></div>
-          <div
-            style={{
-              position: "absolute",
-              bottom: "-23px",
-              left: "47%",
-              width: "100%",
-              height: "30px",
-              backgroundColor: "#ffd050",
-              zIndex: 1,
-            }}
-          ></div>
+        <Box sx={{display:isSmallScreen? 'none':'block'}}>
+        
+         <div
+          style={{
+            position: "absolute",
+            bottom: -25,
+            left: 0,
+            width: "15%",
+            height: "25px",
+            backgroundColor: "#592EA9",
+            zIndex: 1,
+          }}
+        ></div>
+       
+        <div
+          style={{
+            position: "absolute",
+            bottom: -25,
+            left: "15%",
+            width: "60%",
+            height: "25px",
+            backgroundColor: "#592EA9",
+            zIndex: 1,
+          }}
+        ></div>
+     
+        <div
+          style={{
+            position: "absolute",
+            bottom: -25,
+            left: "50%",
+            width: "100%",
+            height: "25px",
+            backgroundColor: "#FFD050",
+            zIndex: 1,
+          }}
+        ></div>
         </Box>
       </Box>
-      <Grid container sx={{justifyContent:'space-around',padding:'80px 40px',bgcolor:'#F4F0F8'}}>
-        <Grid item sx={{mb: isSmallScreen? 3:null}}>
-          <Typography sx={{fontWeight:700,mb:2}}>OUR MISSION</Typography>
-          <Typography variant="h5" sx={{fontWeight:700,mb:2}}>
+      </Box>
+
+
+      <Grid container sx={{ justifyContent: 'space-around', padding: isSmallScreen ? '20px 10px' : '80px 40px', bgcolor: '#F4F0F8' }}>
+        <Grid item xs={12} md={6} sx={{ mb: isSmallScreen ? 3 : null }}>
+          <Typography sx={{ fontWeight: 700, mb: 2 }}>OUR MISSION</Typography>
+          <Typography variant="h5" sx={{ fontWeight: 700, mb: 2 }}>
             Creating valuable content for <br /> creatives all around the world
           </Typography>
-          <Typography sx={{color:'#6D6E76'}}>
+          <Typography sx={{ color: '#6D6E76' }}>
             Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do{" "}
             <br />
             eiusmod tempor incididunt ut labore et dolore magna aliqua. Non{" "}
@@ -148,12 +176,12 @@ const AboutPageHead = () => {
             At risus viverra adipiscing at in tellus.
           </Typography>
         </Grid>
-        <Grid item>
-          <Typography sx={{fontWeight:700,mb:2}}>Our Vision</Typography>
-          <Typography  variant="h5" sx={{fontWeight:700,mb:2}}>
+        <Grid item xs={12} md={6}>
+          <Typography sx={{ fontWeight: 700, mb: 2 }}>Our Vision</Typography>
+          <Typography variant="h5" sx={{ fontWeight: 700, mb: 2 }}>
             A platform that empowers <br /> individuals to improve
           </Typography>
-          <Typography sx={{color:'#6D6E76'}}>
+          <Typography sx={{ color: '#6D6E76' }}>
             Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do{" "}
             <br />
             eiusmod tempor incididunt ut labore et dolore magna aliqua. Non{" "}
