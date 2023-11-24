@@ -4,6 +4,7 @@ import Home from "../Pages/Home/Home";
 import About from "../Pages/About/About";
 import Blog from "../Pages/Blog/Blog";
 import Contact from "../Pages/Contact/Contact";
+import PrivacyPolicy from "../Pages/Privacy Policy/PrivacyPolicy";
 
 
 const WebRouting = () => {
@@ -14,6 +15,7 @@ const WebRouting = () => {
         <Route path="/about" element={<About />} />
         <Route path="/blog" element={<Blog/>} />
         <Route path="/contact" element={<Contact/>} />
+        <Route path="/privacy" element={<PrivacyPolicy/>} />
        
       </Routes>
     </Suspense>
