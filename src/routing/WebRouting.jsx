@@ -6,17 +6,15 @@ import Blog from "../Pages/Blog/Blog";
 import Contact from "../Pages/Contact/Contact";
 import PrivacyPolicy from "../Pages/Privacy Policy/PrivacyPolicy";
 
-
 const WebRouting = () => {
   return (
     <Suspense>
       <Routes>
         <Route path="/" element={<Home />} />
         <Route path="/about" element={<About />} />
-        <Route path="/blog" element={<Blog/>} />
-        <Route path="/contact" element={<Contact/>} />
-        <Route path="/privacy" element={<PrivacyPolicy/>} />
-       
+        <Route path="/blog" element={<Blog />} />
+        <Route path="/contact" element={<Contact />} />
+        <Route  path="/privacy" element={<PrivacyPolicy />}/>
       </Routes>
     </Suspense>
   );

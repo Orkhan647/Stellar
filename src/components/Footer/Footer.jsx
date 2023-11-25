@@ -2,8 +2,16 @@ import React from "react";
 import { Container, Typography, Box, Button, Link } from "@mui/material";
 import logo from "../../assets/logo/logo.png";
 import { Facebook, Twitter, LinkedIn, Instagram } from "@mui/icons-material";
+import { Link as RouterLink } from 'react-router-dom';
 
 const Footer = () => {
+
+
+  const handleLinkClick = () => {
+
+    window.scrollTo(0, 0); 
+  };
+
   return (
     <Box
       component="footer"
@@ -27,11 +35,14 @@ const Footer = () => {
             <img
               src={logo}
               alt="Logo"
-              style={{ height: 40, marginTop: "20px", }}
+              style={{ height: 40, marginTop: "20px" }}
             />
           </Box>
           <Box sx={{ display: "flex" }}>
             <Link
+              component={RouterLink}
+              to="/"
+              onClick={() => handleLinkClick()}
               variant="body2"
               color="textSecondary"
               sx={{
@@ -48,6 +59,9 @@ const Footer = () => {
               Home
             </Link>
             <Link
+              component={RouterLink}
+              to="/blog"
+              onClick={() => handleLinkClick()}
               variant="body2"
               color="textSecondary"
               sx={{
@@ -64,6 +78,9 @@ const Footer = () => {
               Blog
             </Link>
             <Link
+              component={RouterLink}
+              to="/about"
+              onClick={() => handleLinkClick()}
               variant="body2"
               color="textSecondary"
               sx={{
@@ -74,13 +91,15 @@ const Footer = () => {
                   color: (theme) => theme.palette.secondary.main,
                   textDecoration: "none",
                   cursor: "pointer",
-                
                 },
               }}
             >
               About
             </Link>
             <Link
+              component={RouterLink}
+              to="/contact"
+              onClick={() => handleLinkClick()}
               variant="body2"
               color="textSecondary"
               sx={{
@@ -97,11 +116,13 @@ const Footer = () => {
               Contact
             </Link>
             <Link
+              component={RouterLink}
+              to="/privacy"
+              onClick={() => handleLinkClick()}
               variant="body2"
               color="textSecondary"
               sx={{
                 display: "inline",
-
                 mx: 2,
                 color: "#FFFFFF",
                 "&:hover": {
