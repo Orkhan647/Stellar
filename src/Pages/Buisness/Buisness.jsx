@@ -33,6 +33,8 @@ const BlogPost = ({ isMobile, category, title, description, image }) => (
       marginBottom: 5,
       flexDirection: isMobile ? "column" : "row",
       width: "100%",
+      
+      
     }}
   >
     <img
@@ -51,11 +53,11 @@ const BlogPost = ({ isMobile, category, title, description, image }) => (
       <HoverTypography
         variant="h6"
         color="primary"
-        sx={{ fontWeight: 700, mb: 1 }}
+        sx={{ fontWeight: 700, mb: 1,mt:isMobile? 2:null }}
       >
         {category}
       </HoverTypography>
-      <Typography variant="h5" sx={{ fontWeight: 700, mb: 1 }}>
+      <Typography variant="h5" sx={{ fontWeight: 700, mb:1  }}>
         {title}
       </Typography>
       <Typography variant="body1" sx={{ color: "#777684", mb: 2 }}>
@@ -64,13 +66,14 @@ const BlogPost = ({ isMobile, category, title, description, image }) => (
     </Box>
   </Box>
 );
-
 const BlogSidebar = styled(Box)(({ theme }) => ({
+
   backgroundColor: "#fff",
   padding: theme.spacing(2),
   borderRadius: theme.spacing(1),
   marginTop: theme.spacing(2),
-  width: "200px",
+  width:"200px",
+ 
 }));
 
 const SidebarCard = styled(Box)(({ theme }) => ({
@@ -184,7 +187,7 @@ const Business = () => {
     },
   ];
 
-  const tags = ["Tag1", "Tag2", "Tag3", "Tag4"];
+  const tags = ["Tag1", "Tag2", "Tag3", "Tag4", "Tag5", "Tag6"];
 
   return (
     <PageContainer>
@@ -284,15 +287,75 @@ const Business = () => {
             <Grid item xs={12} md={4}>
               <Typography
                 variant="h5"
-                sx={{ fontWeight: 700, mb: 4, textAlign: "center" }}
+                sx={{ fontWeight: 700, mb: 1, textAlign: "center" }}
               >
                 All Tags
               </Typography>
-              {tags.map((tag, index) => (
-                <TagButton key={index} variant="outlined">
-                  {tag}
-                </TagButton>
-              ))}
+              <Grid container spacing={isMobile ? 2 : 0}>
+                <Grid item xs={6} md={6}>
+                  <TagButton
+                    key={0}
+                    variant="outlined"
+                    sx={{ width: isMobile ? "100%" : "110px" }}
+                  >
+                    {tags[0]}
+                  </TagButton>
+                </Grid>
+                <Grid item xs={6} md={6}>
+                  <TagButton
+                    key={1}
+                    variant="outlined"
+                    sx={{
+                      width: isMobile ? "100%" : "110px",
+                      ml: isMobile ? 0 : 8,
+                    }}
+                  >
+                    {tags[1]}
+                  </TagButton>
+                </Grid>
+                <Grid item xs={6} md={6}>
+                  <TagButton
+                    key={2}
+                    variant="outlined"
+                    sx={{ width: isMobile ? "100%" : "70px" }}
+                  >
+                    {tags[2]}
+                  </TagButton>
+                </Grid>
+                <Grid item xs={6} md={6}>
+                  <TagButton
+                    key={3}
+                    variant="outlined"
+                    sx={{
+                      width: isMobile ? "100%" : "150px",
+                      ml: isMobile ? 0 : 3,
+                    }}
+                  >
+                    {tags[3]}
+                  </TagButton>
+                </Grid>
+                <Grid item xs={6} md={6}>
+                  <TagButton
+                    key={4}
+                    variant="outlined"
+                    sx={{ width: isMobile ? "100%" : "150px" }}
+                  >
+                    {tags[4]}
+                  </TagButton>
+                </Grid>
+                <Grid item xs={6} md={6}>
+                  <TagButton
+                    key={5}
+                    variant="outlined"
+                    sx={{
+                      width: isMobile ? "100%" : "70px",
+                      ml: isMobile ? 0 : 13,
+                    }}
+                  >
+                    {tags[5]}
+                  </TagButton>
+                </Grid>
+              </Grid>
             </Grid>
           </Grid>
         </Grid>
