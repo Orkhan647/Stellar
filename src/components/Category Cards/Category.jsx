@@ -1,4 +1,5 @@
-import React from 'react';
+import React, { useEffect } from 'react';
+import { Link, useLocation } from 'react-router-dom';
 import { Box, Container, Typography, Card, CardContent } from '@mui/material';
 import stateIcon from '../../assets/state icon.png';
 import rocketIcon from '../../assets/rocket icon.png';
@@ -33,6 +34,14 @@ const categories = [
 ];
 
 const Category = ({ textAlign, title }) => {
+  const location = useLocation();
+
+  useEffect(() => {
+    if (location.pathname === '/business') {
+      window.scrollTo(0, 0);
+    }
+  }, [location.pathname]);
+
   return (
     <Container sx={{ paddingBottom: '100px' }}>
       <Typography variant='h5' sx={{ textAlign: textAlign || 'center', fontWeight: 700, mb: 3, mt: 3 }}>
@@ -58,7 +67,7 @@ const Category = ({ textAlign, title }) => {
               justifyContent: 'center',
               alignItems: 'center',
               padding: '35px',
-              margin:'10px',
+              margin: '10px',
               paddingTop: '100px',
               transition: 'background 0.3s',
               '&:hover': {
@@ -67,15 +76,29 @@ const Category = ({ textAlign, title }) => {
               mb: { xs: 2, sm: 0 },
             }}
           >
-            <CardContent>
-              <img src={category.logo} alt={category.title} style={{ marginBottom: '12px' }} />
-              <Typography variant='h6' color='text.primary' sx={{ fontWeight: 800 }}>
-                {category.title}
-              </Typography>
-              <Typography variant='body2' color='text.secondary'>
-                {category.description}
-              </Typography>
-            </CardContent>
+            {category.title === 'Business' ? (
+              <Link to='/business' style={{ textDecoration: 'none', color: 'inherit' }}>
+                <CardContent>
+                  <img src={category.logo} alt={category.title} style={{ marginBottom: '12px' }} />
+                  <Typography variant='h6' color='text.primary' sx={{ fontWeight: 800 }}>
+                    {category.title}
+                  </Typography>
+                  <Typography variant='body2' color='text.secondary'>
+                    {category.description}
+                  </Typography>
+                </CardContent>
+              </Link>
+            ) : (
+              <CardContent>
+                <img src={category.logo} alt={category.title} style={{ marginBottom: '12px' }} />
+                <Typography variant='h6' color='text.primary' sx={{ fontWeight: 800 }}>
+                  {category.title}
+                </Typography>
+                <Typography variant='body2' color='text.secondary'>
+                  {category.description}
+                </Typography>
+              </CardContent>
+            )}
           </Card>
         ))}
       </Box>
