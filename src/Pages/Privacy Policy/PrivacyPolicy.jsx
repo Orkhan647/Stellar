@@ -1,10 +1,12 @@
-import React from "react";
+import React, { useEffect } from "react";
 import PageContainer from "../../components/PageContainer/PageContainer";
 import { Box, Container, Typography, useMediaQuery } from "@mui/material";
 
 const PrivacyPolicy = () => {
   const isSmallScreen = useMediaQuery((theme) => theme.breakpoints.down("sm"));
-
+  useEffect(() => {
+    window.scrollTo(0, 0);
+  }, []);
   return (
     <PageContainer>
       <Box sx={{ bgcolor: "#F4F0F8" }}>

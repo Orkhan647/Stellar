@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useEffect } from "react";
 import PageContainer from "../../components/PageContainer/PageContainer";
 
 import Banner from "../../components/Banner/banner";
@@ -12,6 +12,9 @@ import Testimonials from "../../components/Testimonials/Testimonials";
 import JoinOurTeam from "../../components/JoinOurTeam/JoinOurTeam";
 
 const Home = () => {
+  useEffect(() => {
+    window.scrollTo(0, 0);
+  }, []);
   return (
     <PageContainer>
       <Banner />

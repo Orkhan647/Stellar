@@ -68,7 +68,7 @@ const Category = ({ textAlign, title }) => {
               mb: { xs: 2, sm: 0 },
             }}
           >
-            {/* Use Link for both 'Startup' and 'Business' categories */}
+
             <Link to={`/${category.title.toLowerCase()}`} style={{ textDecoration: 'none', color: 'inherit' }}>
               <CardContent>
                 <img src={category.logo} alt={category.title} style={{ marginBottom: '12px' }} />
