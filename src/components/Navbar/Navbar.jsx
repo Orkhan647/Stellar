@@ -9,7 +9,7 @@ import ListItemButton from "@mui/material/ListItemButton";
 import ListItemText from "@mui/material/ListItemText";
 import MenuIcon from "@mui/icons-material/Menu";
 import Toolbar from "@mui/material/Toolbar";
-import { Container, Button, Box, Drawer, Divider, Link } from "@mui/material";
+import { Container, Button, Box, Drawer, Divider } from "@mui/material";
 import logo from "../../assets/logo/logo.png";
 
 const navItems = [
