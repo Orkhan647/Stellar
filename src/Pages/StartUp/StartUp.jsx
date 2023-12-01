@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 import PageContainer from "../../components/PageContainer/PageContainer";
 import { Box, Container, Typography, useMediaQuery } from "@mui/material";
 import {  createTheme } from "@mui/material/styles";
@@ -14,7 +14,9 @@ const StartUp = () => {
   const [isAuthorHovered, setIsAuthorHovered] = useState(false);
   const theme = createTheme();
   const isSmallScreen = useMediaQuery(theme.breakpoints.down("sm"));
-
+  useEffect(() => {
+    window.scrollTo(0, 0);
+  }, []);
   return (
     <PageContainer>
       <Container>

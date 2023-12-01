@@ -68,21 +68,8 @@ const Category = ({ textAlign, title }) => {
               mb: { xs: 2, sm: 0 },
             }}
           >
-
-            {category.title === 'Business' ? (
-              <Link to='/business' style={{ textDecoration: 'none', color: 'inherit' }}>
-                <CardContent>
-                  <img src={category.logo} alt={category.title} style={{ marginBottom: '12px' }} />
-                  <Typography variant='h6' color='text.primary' sx={{ fontWeight: 800 }}>
-                    {category.title}
-                  </Typography>
-                  <Typography variant='body2' color='text.secondary'>
-                    {category.description}
-                  </Typography>
-                </CardContent>
-              </Link>
-            ) : (
-             
+            {/* Use Link for both 'Startup' and 'Business' categories */}
+            <Link to={`/${category.title.toLowerCase()}`} style={{ textDecoration: 'none', color: 'inherit' }}>
               <CardContent>
                 <img src={category.logo} alt={category.title} style={{ marginBottom: '12px' }} />
                 <Typography variant='h6' color='text.primary' sx={{ fontWeight: 800 }}>
@@ -92,7 +79,7 @@ const Category = ({ textAlign, title }) => {
                   {category.description}
                 </Typography>
               </CardContent>
-            )}
+            </Link>
           </Card>
         ))}
       </Box>
