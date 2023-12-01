@@ -1,5 +1,7 @@
 import React, { useEffect } from "react";
+import { useNavigate } from "react-router-dom";
 import PageContainer from "../../components/PageContainer/PageContainer";
+
 import {
   Box,
   Container,
@@ -26,7 +28,7 @@ const HoverTypography = styled(Typography)(() => ({
   },
 }));
 
-const BlogPost = ({ isMobile, category, title, description, image }) => (
+const BlogPost = ({ isMobile, category, title, description, image, onClick }) => (
   <Box
     sx={{
       display: "flex",
@@ -52,6 +54,7 @@ const BlogPost = ({ isMobile, category, title, description, image }) => (
         variant="h6"
         color="primary"
         sx={{ fontWeight: 700, mb: 1, mt: isMobile ? 2 : null }}
+        onClick={onClick}
       >
         {category}
       </HoverTypography>
@@ -186,7 +189,16 @@ const Business = () => {
 
   const tags = ["Tag1", "Tag2", "Tag3", "Tag4", "Tag5", "Tag6"];
 
- 
+  const navigate = useNavigate();
+
+  const handleCategoryClick = (category) => {
+    if (category === "Business") {
+      window.scrollTo(0, 0);
+    } else if (category === "Startup") {
+      navigate("/startup");
+    }
+  };
+
   useEffect(() => {
     window.scrollTo(0, 0);
   }, []);
@@ -226,7 +238,12 @@ const Business = () => {
         <Grid container spacing={isMobile ? 2 : 4} sx={{ mt: 5 }}>
           <Grid item xs={12} md={8}>
             {blogData.map((blog, index) => (
-              <BlogPost key={index} isMobile={isMobile} {...blog} />
+              <BlogPost
+                key={index}
+                isMobile={isMobile}
+                {...blog}
+                onClick={() => handleCategoryClick(blog.category)}
+              />
             ))}
           </Grid>
           <Grid item xs={12} md={4}>
@@ -247,7 +264,12 @@ const Business = () => {
                   src={rocketIcon}
                   alt=""
                 />
-                <Typography variant="body1">Startup</Typography>
+                <Typography
+                  variant="body1"
+                  onClick={() => handleCategoryClick("Startup")}
+                >
+                  Startup
+                </Typography>
               </SidebarCard>
               <SidebarCard>
                 <img
@@ -259,7 +281,12 @@ const Business = () => {
                   src={stateIcon}
                   alt=""
                 />
-                <Typography variant="body1">Business</Typography>
+                <Typography
+                  variant="body1"
+                  onClick={() => handleCategoryClick("Business")}
+                >
+                  Business
+                </Typography>
               </SidebarCard>
               <SidebarCard>
                 <img
@@ -299,7 +326,11 @@ const Business = () => {
                     <TagButton
                       variant="outlined"
                       sx={{
-                        width: isMobile ? "100%" : index % 2 === 0 ? "110px" : "70px",
+                        width: isMobile
+                          ? "100%"
+                          : index % 2 === 0
+                          ? "110px"
+                          : "70px",
                         ml: isMobile ? 0 : index % 2 === 0 ? 0 : 8,
                       }}
                     >
