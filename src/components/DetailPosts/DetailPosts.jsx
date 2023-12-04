@@ -51,7 +51,7 @@ const DetailPosts = () => {
             </Typography>
           </Box>
         </Grid>
-        <Grid item sx={{ display: "flex", mt: isSmallScreen ? 5 : 0,flexDirection:isSmallScreen?"column":"row" }}>
+        <Grid item sx={{ display: "flex", mt: 5,mb:5,flexDirection:isSmallScreen?"column":"row" }}>
           <Box>
             <img
               src={data.posts.img2}
