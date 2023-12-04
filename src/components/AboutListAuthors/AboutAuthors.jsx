@@ -17,55 +17,165 @@ import logo5 from "../../assets/logo-5.png";
 import logo6 from "../../assets/logo 6.png";
 import logo7 from "../../assets/logo 7.png";
 import logo8 from "../../assets/logo 8.png";
+import { Link } from "react-router-dom";
 
-const categories = [
+export const categories = [
   {
     id: 1,
     title: "Floyd Miles",
     description: "Content Writer @Company",
-    logo: logo1,
+    about: (
+      <React.Fragment>
+        Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod
+        tempor <br /> incididunt ut labore et dolore magna aliqua. Non blandit
+        massa enim nec. Scelerisque <br /> viverra mauris in aliquam sem. At
+        risus viverra adipiscing at in tellus.
+      </React.Fragment>
+    ),
+    logo: logo1
+
+
   },
   {
     id: 2,
     title: "Dianne Russell",
     description: "Content Writer @Company",
+    about: (
+      <React.Fragment>
+        Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod
+        tempor <br /> incididunt ut labore et dolore magna aliqua. Non blandit
+        massa enim nec. Scelerisque <br /> viverra mauris in aliquam sem. At
+        risus viverra adipiscing at in tellus.
+      </React.Fragment>
+    ),
     logo: logo2,
+    social: {
+      Facebook,
+      Twitter,
+      Instagram,
+      LinkedIn,
+    },
   },
   {
     id: 3,
     title: "Jenny Wilson",
     description: "Content Writer @Company",
+    about: (
+      <React.Fragment>
+        Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod
+        tempor <br /> incididunt ut labore et dolore magna aliqua. Non blandit
+        massa enim nec. Scelerisque <br /> viverra mauris in aliquam sem. At
+        risus viverra adipiscing at in tellus.
+      </React.Fragment>
+    ),
     logo: logo3,
+    social: {
+      Facebook,
+      Twitter,
+      Instagram,
+      LinkedIn,
+    },
   },
   {
     id: 4,
     title: "Leslie Alexander",
     description: "Content Writer @Company",
+    about: (
+      <React.Fragment>
+        Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod
+        tempor <br /> incididunt ut labore et dolore magna aliqua. Non blandit
+        massa enim nec. Scelerisque <br /> viverra mauris in aliquam sem. At
+        risus viverra adipiscing at in tellus.
+      </React.Fragment>
+    ),
     logo: logo4,
+    social: {
+      Facebook,
+      Twitter,
+      Instagram,
+      LinkedIn,
+    },
   },
   {
     id: 5,
     title: "Guy Hawkins",
     description: "Content Writer @Company",
+    about: (
+      <React.Fragment>
+        Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod
+        tempor <br /> incididunt ut labore et dolore magna aliqua. Non blandit
+        massa enim nec. Scelerisque <br /> viverra mauris in aliquam sem. At
+        risus viverra adipiscing at in tellus.
+      </React.Fragment>
+    ),
     logo: logo5,
+    social: {
+      Facebook,
+      Twitter,
+      Instagram,
+      LinkedIn,
+    },
   },
   {
     id: 6,
     title: "Eleanor Pena",
     description: "Content Writer @Company",
+    about: (
+      <React.Fragment>
+        Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod
+        tempor <br /> incididunt ut labore et dolore magna aliqua. Non blandit
+        massa enim nec. Scelerisque <br /> viverra mauris in aliquam sem. At
+        risus viverra adipiscing at in tellus.
+      </React.Fragment>
+    ),
     logo: logo6,
+    social: {
+      Facebook,
+      Twitter,
+      Instagram,
+      LinkedIn,
+    },
   },
   {
     id: 7,
     title: "Robert Fox",
     description: "Content Writer @Company",
+    about: (
+      <React.Fragment>
+        Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod
+        tempor <br /> incididunt ut labore et dolore magna aliqua. Non blandit
+        massa enim nec. Scelerisque <br /> viverra mauris in aliquam sem. At
+        risus viverra adipiscing at in tellus.
+      </React.Fragment>
+    ),
     logo: logo7,
+    social: {
+      Facebook,
+      Twitter,
+      Instagram,
+      LinkedIn,
+    },
   },
   {
     id: 8,
     title: "Jacob Jones",
     description: "Content Writer @Company",
+    about: (
+      <React.Fragment>
+        Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod
+        tempor <br /> incididunt ut labore et dolore magna aliqua. Non blandit
+        massa enim nec. Scelerisque <br /> viverra mauris in aliquam sem. At
+        risus viverra adipiscing at in tellus.
+      </React.Fragment>
+    ),
+
     logo: logo8,
+    social: {
+      Facebook,
+      Twitter,
+      Instagram,
+      LinkedIn,
+    },
   },
 ];
 
@@ -88,70 +198,72 @@ const AboutAuthors = () => {
         alignItems="center"
       >
         {categories.map((category, index) => (
-          <Card
-            key={category.id}
-            sx={{
-              border: "1px solid #e9e9ea",
-              width: 240,
-              height: 280,
-              borderRadius: 0,
-              display: "flex",
-              flexDirection: "column",
-              justifyContent: "space-between",
-              alignItems: "center",
-              padding: "16px",
-              transition: "background 0.3s",
-              backgroundColor: "#F4F4F4",
-              "&:hover": {
-                backgroundColor: "#FBF6EA",
-              },
-              mb: 4, // Adjust margin for more space
-            }}
-          >
-            <CardContent sx={{ textAlign: "center" }}>
-              <img
-                src={category.logo}
-                alt={category.title}
-                style={{ marginBottom: "20px" }}
-              />
-              <Typography
-                variant="h6"
-                color="text.primary"
-                sx={{ fontWeight: 800, mb: 1 }}
-              >
-                {category.title}
-              </Typography>
-              <Typography variant="body2" color="text.secondary">
-                {category.description}
-              </Typography>
+          <Link key={category.id} to={`/detail/${category.id}`}>
+            <Card
+              sx={{
+                border: "1px solid #e9e9ea",
+                width: 240,
+                height: 280,
+                borderRadius: 0,
+                display: "flex",
+                flexDirection: "column",
+                justifyContent: "space-between",
 
-              <Box display="flex" justifyContent="center">
-                <IconButton
-                  sx={{ color: "black", "&:hover": { color: "blue" } }}
+                alignItems: "center",
+                padding: "16px",
+                transition: "background 0.3s",
+                backgroundColor: "#F4F4F4",
+                "&:hover": {
+                  backgroundColor: "#FBF6EA",
+                },
+                mb: 4,
+              }}
+            >
+              <CardContent sx={{ textAlign: "center" }}>
+                <img
+                  src={category.logo}
+                  alt={category.title}
+                  style={{ marginBottom: "20px" }}
+                />
+                <Typography
+                  variant="h6"
+                  color="text.primary"
+                  sx={{ fontWeight: 800, mb: 1 }}
                 >
-                  <Facebook />
-                </IconButton>
-                <IconButton
-                  sx={{ color: "black", "&:hover": { color: "#00acee" } }}
-                >
-                  <Twitter />
-                </IconButton>
-                <IconButton
-                  sx={{ color: "black", "&:hover": { color: "darkblue" } }}
-                >
-                  <LinkedIn />
-                </IconButton>
-                <IconButton
-                  sx={{
-                    color: "black",
-                    "&:hover": { color: "rgb(228, 64, 95)" },
-                  }}
-                >
-                  <Instagram />
-                </IconButton>
-              </Box>
-            </CardContent>
-          </Card>
+                  {category.title}
+                </Typography>
+                <Typography variant="body2" color="text.secondary">
+                  {category.description}
+                </Typography>
+
+                <Box display="flex" justifyContent="center">
+                  <IconButton
+                    sx={{ color: "black", "&:hover": { color: "blue" } }}
+                  >
+                    <Facebook />
+                  </IconButton>
+                  <IconButton
+                    sx={{ color: "black", "&:hover": { color: "#00acee" } }}
+                  >
+                    <Twitter />
+                  </IconButton>
+                  <IconButton
+                    sx={{ color: "black", "&:hover": { color: "darkblue" } }}
+                  >
+                    <LinkedIn />
+                  </IconButton>
+                  <IconButton
+                    sx={{
+                      color: "black",
+                      "&:hover": { color: "rgb(228, 64, 95)" },
+                    }}
+                  >
+                    <Instagram />
+                  </IconButton>
+                </Box>
+              </CardContent>
+            </Card>
+          </Link>
         ))}
       </Box>
     </Container>
