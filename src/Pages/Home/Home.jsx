@@ -1,7 +1,7 @@
 import React, { useEffect } from "react";
 import PageContainer from "../../components/PageContainer/PageContainer";
 
-import Banner from "../../components/Banner/banner";
+
 import Posts from "../../components/Posts/Posts";
 import AboutUs from "../../components/About Us/AboutUs";
 import Category from "../../components/Category Cards/Category";
@@ -10,6 +10,7 @@ import Authors from "../../components/Authors/Authors";
 import Brands from "../../components/Brands/Brands";
 import Testimonials from "../../components/Testimonials/Testimonials";
 import JoinOurTeam from "../../components/JoinOurTeam/JoinOurTeam";
+import Banner from "../../components/index/Banner";
 
 const Home = () => {
   useEffect(() => {
@@ -17,7 +18,7 @@ const Home = () => {
   }, []);
   return (
     <PageContainer>
-      <Banner />
+     <Banner/>
       <Posts />
       <AboutUs />
       <Category />
