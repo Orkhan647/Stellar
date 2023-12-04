@@ -17,6 +17,8 @@ import logo5 from "../../assets/logo-5.png";
 import logo6 from "../../assets/logo 6.png";
 import logo7 from "../../assets/logo 7.png";
 import logo8 from "../../assets/logo 8.png";
+import state from "../../assets/state.png";
+import persons from "../../assets/persons.png";
 import { Link } from "react-router-dom";
 
 export const categories = [
@@ -32,9 +34,25 @@ export const categories = [
         risus viverra adipiscing at in tellus.
       </React.Fragment>
     ),
-    logo: logo1
-
-
+    logo: logo1,
+    social: {
+      Facebook,
+      Twitter,
+      Instagram,
+      LinkedIn,
+    },
+    posts: {
+      img1: state,
+      img2: persons,
+      busines: "BUSINESS",
+      economy: "ECONOMY",
+      title1: "Font sizes in UI design: The complete guide to follow",
+      description1:
+        "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.",
+      title2: "How to build rapport with your web design clients",
+      description2:
+        "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.",
+    },
   },
   {
     id: 2,
@@ -54,6 +72,18 @@ export const categories = [
       Twitter,
       Instagram,
       LinkedIn,
+    },
+    posts: {
+      img1: state,
+      img2: persons,
+      busines: "BUSINESS",
+      economy: "ECONOMY",
+      title1: "Font sizes in UI design: The complete guide to follow",
+      description1:
+        "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.",
+      title2: "How to build rapport with your web design clients",
+      description2:
+        "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.",
     },
   },
   {
@@ -75,6 +105,18 @@ export const categories = [
       Instagram,
       LinkedIn,
     },
+    posts: {
+      img1: state,
+      img2: persons,
+      busines: "BUSINESS",
+      economy: "ECONOMY",
+      title1: "Font sizes in UI design: The complete guide to follow",
+      description1:
+        "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.",
+      title2: "How to build rapport with your web design clients",
+      description2:
+        "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.",
+    },
   },
   {
     id: 4,
@@ -94,6 +136,18 @@ export const categories = [
       Twitter,
       Instagram,
       LinkedIn,
+    },
+    posts: {
+      img1: state,
+      img2: persons,
+      busines: "BUSINESS",
+      economy: "ECONOMY",
+      title1: "Font sizes in UI design: The complete guide to follow",
+      description1:
+        "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.",
+      title2: "How to build rapport with your web design clients",
+      description2:
+        "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.",
     },
   },
   {
@@ -115,6 +169,18 @@ export const categories = [
       Instagram,
       LinkedIn,
     },
+    posts: {
+      img1: state,
+      img2: persons,
+      busines: "BUSINESS",
+      economy: "ECONOMY",
+      title1: "Font sizes in UI design: The complete guide to follow",
+      description1:
+        "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.",
+      title2: "How to build rapport with your web design clients",
+      description2:
+        "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.",
+    },
   },
   {
     id: 6,
@@ -135,6 +201,18 @@ export const categories = [
       Instagram,
       LinkedIn,
     },
+    posts: {
+      img1: state,
+      img2: persons,
+      busines: "BUSINESS",
+      economy: "ECONOMY",
+      title1: "Font sizes in UI design: The complete guide to follow",
+      description1:
+        "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.",
+      title2: "How to build rapport with your web design clients",
+      description2:
+        "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.",
+    },
   },
   {
     id: 7,
@@ -154,6 +232,18 @@ export const categories = [
       Twitter,
       Instagram,
       LinkedIn,
+    },
+    posts: {
+      img1: state,
+      img2: persons,
+      busines: "BUSINESS",
+      economy: "ECONOMY",
+      title1: "Font sizes in UI design: The complete guide to follow",
+      description1:
+        "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.",
+      title2: "How to build rapport with your web design clients",
+      description2:
+        "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.",
     },
   },
   {
@@ -176,6 +266,18 @@ export const categories = [
       Instagram,
       LinkedIn,
     },
+    posts: {
+      img1: state,
+      img2: persons,
+      busines: "BUSINESS",
+      economy: "ECONOMY",
+      title1: "Font sizes in UI design: The complete guide to follow",
+      description1:
+        "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.",
+      title2: "How to build rapport with your web design clients",
+      description2:
+        "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.",
+    },
   },
 ];
 
@@ -197,7 +299,7 @@ const AboutAuthors = () => {
         justifyContent={isSmallScreen ? "center" : "space-between"}
         alignItems="center"
       >
-        {categories.map((category, index) => (
+        {categories.map((category) => (
           <Link key={category.id} to={`/detail/${category.id}`}>
             <Card
               sx={{
